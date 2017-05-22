@@ -1,0 +1,22 @@
+# AsusWRT presence
+
+Simple script extracting available devices on an AsusWRT router using either telnet or ssh interface
+
+It is a big rip-off of Home Assistant asuswrt plugin with a http server added to serve the response as JSON to consume it with jq (in order to do presence detection by other means)
+
+## How to use it
+
+You will need to enable ssh first in the admin GUI of your AsusWRT router
+
+[source,shell]
+----
+cp sample.env my.env
+# edit the variable according to your environment
+docker run -d --restart=always --name=asuswrt-presence --env-file=my.env -p 9090:9090 cgatay/asuswrt-presence
+----
+
+Then you will be able to access device list per IP on http://yourserver:9090/
+
+## Disclaimer
+
+This has only be tested on a RT-AC68U for the time being.
