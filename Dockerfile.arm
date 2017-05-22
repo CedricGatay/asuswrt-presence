@@ -2,7 +2,7 @@ FROM hypriot/rpi-alpine-scratch
 
 RUN apk update && \
 apk upgrade && \
-apk add python py-pip openssh-server && \
+apk add python py-pip openssh-client && \
 rm -rf /var/cache/apk/*
 
 RUN pip install pexpect
